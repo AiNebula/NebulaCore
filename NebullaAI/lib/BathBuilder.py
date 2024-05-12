@@ -27,8 +27,8 @@ class BathBuilder:
         # check if it is nested path
         if self.__check_seperators(directory): return self.__build_path(directory)
 
-        # check if it is in the common locations
-        if directory.lower() in self.common_locations:
+        # check if it is in the common locations and it will be saved in the common locationns in system
+        if directory.lower() in self.common_locations and self.path == "":
             return f"{self.get_base_path()}\\{directory}"
         else:
             # if it is not in the common location, build a new path

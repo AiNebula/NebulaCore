@@ -12,7 +12,6 @@ class file_managment_systemService(Service):
         for attr in self.attrs:
             try:
                 attr_name, attr_value = attr[:attr.find(':')], attr[attr.find(':') + 1:]
-                print(attr_name, attr_value)
                 setattr(self, self.__attrs_organize(remove_spaces_quotes(attr_name)), remove_surrounding_spaces(attr_value))
             except TypeError as e:
                 self.action = remove_spaces_quotes(attr)

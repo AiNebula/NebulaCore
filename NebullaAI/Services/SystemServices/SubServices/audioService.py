@@ -25,7 +25,7 @@ class audioService(Service):
     def load(self) -> bool:
         for attr in self.attrs:
             try:
-                attr_name, attr_value = attr.split(":")
+                attr_name, attr_value = attr[:attr.find(':')], attr[attr.find(':') + 1:]
                 try:
                     setattr(self, self.__attrs_organize(remove_spaces_quotes(attr_name)), int(remove_spaces_quotes(attr_value)))
                 except TypeError as e:

@@ -21,6 +21,7 @@ class FileController:
         if '.' not in filename: filename = f"{filename}.txt"
         try:
             with open(os.path.join(path, filename), 'w') as file:
+                print(f"createing {filename} file in {path}")
                 file.write(content)
             return True
         except OSError as e:

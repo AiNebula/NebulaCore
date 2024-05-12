@@ -1,5 +1,5 @@
 from NebullaAI.Services import Service
-from NebullaAI.lib.NameCleaner import remove_spaces_quotes
+from NebullaAI.lib.NameCleaner import remove_spaces_quotes, remove_surrounding_spaces
 from NebullaAI.lib.BathBuilder import BathBuilder
 from datetime import datetime
 
@@ -24,9 +24,9 @@ class screenshotService(Service):
     def load(self) -> bool:
         print("attrs:", self.attrs)
         for attr in self.attrs:
-            attr_name, attr_value = attr.split(":")
+            attr_name, attr_value = attr[:attr.find(':')], attr[attr.find(':') + 1:]
             try:
-                setattr(self, self.__attrs_organize(remove_spaces_quotes(attr_name)), remove_spaces_quotes(attr_value))
+                setattr(self, self.__attrs_organize(remove_spaces_quotes(attr_name)), remove_surrounding_spaces(attr_value))
             except TypeError as e:
                 pass
         
