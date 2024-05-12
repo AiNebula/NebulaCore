@@ -1,7 +1,7 @@
 from NebullaAI.Services import Service
 from NebullaAI.lib.NameCleaner import remove_spaces_quotes
 from NebullaAI.lib.BathBuilder import BathBuilder
-import datetime
+from datetime import datetime
 
 class screenshotService(Service):
     def __init__(self, attrs:list) -> None:
