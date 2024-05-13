@@ -13,13 +13,19 @@ class Nebula(SystemHelper):
         }
         ])
     
-    def compile(self, prompt) -> list:
+    def compile(self, prompt) -> str:
         self.convo.send_message(prompt)
         if self.__is_true(self.convo.last.text):
             return self.convo.history[-2].parts[0].text
         print(f"Nebula : {self.convo.last.text} \n")
         prompt = input('> ')
         return self.compile(prompt)
+    
+    def compile_ui(self, prompt) -> str|dict:
+        response = self.convo.send_message(prompt)
+        if self.__is_true(self.convo.last.text):
+            return self.convo.history[-2].parts[0].text
+        return {"response": self.convo.last.text, "response_feedback": response.prompt_feedback}
     
     def __is_true(self, response:str):
         try:
