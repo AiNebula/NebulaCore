@@ -10,17 +10,19 @@ model_ouput = TC.compile(prompt)
 MOO = ModelOutputOrganizer(model_ouput)
 sentence = MOO.sentences
 
-PB = PromptBuilder()
-Tag_C = TagClassification()
+print(sentence)
 
-for system, item in sentence.items():
-    if system == '<lvl2>': 
-        # send to gemnin
-        # print("Gemini :", item['order'])
-        continue
-    pmpt_builder = PB.compile(item['order'])
-    item['order'] = pmpt_builder[1]
-    item['tags'] = Tag_C.compile(pmpt_builder[1])
-    # print("Final Prompt :", pmpt_builder[1])
+# PB = PromptBuilder()
+# Tag_C = TagClassification()
+
+# for system, item in sentence.items():
+#     if system == '<lvl2>': 
+#         # send to gemnin
+#         # print("Gemini :", item['order'])
+#         continue
+#     pmpt_builder = PB.compile(item['order'])
+#     item['order'] = pmpt_builder[1]
+#     item['tags'] = Tag_C.compile(pmpt_builder[1])
+#     # print("Final Prompt :", pmpt_builder[1])
 
 print(sentence)

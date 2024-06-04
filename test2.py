@@ -32,17 +32,13 @@ Handling :
         Audio Service,
         Brightness Service
     
-        
-    
-Handling : One Level only ( level 1 )
-
 """
 
 print(sentence)
 
-SC = SystemController(
-    sentence
-)
+# SC = SystemController(
+#     sentence
+# )
 
     # multi services case
     # {

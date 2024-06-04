@@ -4,46 +4,46 @@ from NebullaAI.lib.ModelOutputOrganizer import ModelOutputOrganizer
 
 # Token classification 
 nebula = Nebula()
-print(nebula.compile_ui("Hi"))
-# while True:
-#     prompt = input("> ")
 
-#     result = nebula.compile(prompt)
+while True:
+    prompt = input("> ")
 
-#     if result:
-#         TC = TokenClassifier("checkpoint-1840")
-#         model_ouput = TC.compile(result)
+    result = nebula.compile(prompt)
 
-#         MOO = ModelOutputOrganizer(model_ouput)
-#         sentence = MOO.sentences
+    if result:
+        TC = TokenClassifier("checkpoint-1840")
+        model_ouput = TC.compile(result)
 
-#         PB = PromptBuilder()
-#         Tag_C = TagClassification()
+        MOO = ModelOutputOrganizer(model_ouput)
+        sentence = MOO.sentences
 
-#         for system, item in sentence.items():
-#             if system == '<lvl2>': 
-#                 # send to gemnin
-#                 # print("Gemini :", item['order'])
-#                 continue
-#             pmpt_builder = PB.compile(item['order'])
-#             item['order'] = pmpt_builder[1]
-#             item['tags'] = Tag_C.compile(pmpt_builder[1])
-#             # print("Final Prompt :", pmpt_builder[1])
+        PB = PromptBuilder()
+        Tag_C = TagClassification()
+
+        for system, item in sentence.items():
+            if system == '<lvl2>': 
+                # send to gemnin
+                # print("Gemini :", item['order'])
+                continue
+            pmpt_builder = PB.compile(item['order'])
+            item['order'] = pmpt_builder[1]
+            item['tags'] = Tag_C.compile(pmpt_builder[1])
+            # print("Final Prompt :", pmpt_builder[1])
 
 
-#         """
-#         Handling :
-#             System Services: 
-#                 Screen Shoot Service,
-#                 Audio Service,
-#                 Brightness Service
+        """
+        Handling :
+            System Services: 
+                Screen Shoot Service,
+                Audio Service,
+                Brightness Service
             
                 
             
-#         Handling : One Level only ( level 1 )
+        Handling : One Level only ( level 1 )
 
-#         """
+        """
 
-#         SC = SystemController(
-#             sentence
-#         )
+        SC = SystemController(
+            sentence
+        )
