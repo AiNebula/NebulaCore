@@ -1,2 +1,2 @@
 # Nebula
-Nebula ecosystem-based AI
+Nebula Core
